@@ -435,6 +435,40 @@ export interface ApiAziendaAzienda extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBrochoureStudioBrochoureStudio
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'brochoure_studios';
+  info: {
+    displayName: 'Brochoure_studio';
+    pluralName: 'brochoure-studios';
+    singularName: 'brochoure-studio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descrizione: Schema.Attribute.String;
+    file: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brochoure-studio.brochoure-studio'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Titolo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContattoContatto extends Struct.CollectionTypeSchema {
   collectionName: 'contattos';
   info: {
@@ -1067,6 +1101,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::azienda.azienda': ApiAziendaAzienda;
+      'api::brochoure-studio.brochoure-studio': ApiBrochoureStudioBrochoureStudio;
       'api::contatto.contatto': ApiContattoContatto;
       'api::global.global': ApiGlobalGlobal;
       'api::prodotto.prodotto': ApiProdottoProdotto;

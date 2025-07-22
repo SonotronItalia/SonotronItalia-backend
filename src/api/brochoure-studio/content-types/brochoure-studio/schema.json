@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brochoure_studios",
+  "info": {
+    "singularName": "brochoure-studio",
+    "pluralName": "brochoure-studios",
+    "displayName": "Brochoure_studio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titolo": {
+      "type": "string"
+    },
+    "descrizione": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
