@@ -1,0 +1,27 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contattos",
+    "info": {
+        "singularName": "contatto",
+        "pluralName": "contattos",
+        "displayName": "contatto"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "email": {
+            "type": "email"
+        },
+        "indirizzo": {
+            "type": "string"
+        },
+        "telefono": {
+            "type": "string"
+        },
+        "map_link": {
+            "type": "string"
+        }
+    }
+}
