@@ -53,6 +53,43 @@
                 "videos",
                 "audios"
             ]
+        },
+        "peso": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "altezza": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "larghezza": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "profondita": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "scheda_tecnica": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::scheda-tecnica.scheda-tecnica"
         }
     }
 }

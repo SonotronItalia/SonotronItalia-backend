@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "terapias",
+  "info": {
+    "singularName": "terapia",
+    "pluralName": "terapias",
+    "displayName": "Terapia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Descrizione": {
+      "type": "text"
+    }
+  }
+}

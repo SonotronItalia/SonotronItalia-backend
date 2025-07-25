@@ -578,6 +578,12 @@ export interface ApiProdottoProdotto extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    altezza: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -596,6 +602,12 @@ export interface ApiProdottoProdotto extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    larghezza: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -607,12 +619,100 @@ export interface ApiProdottoProdotto extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    peso: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     prezzo: Schema.Attribute.Decimal &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    profondita: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    scheda_tecnica: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::scheda-tecnica.scheda-tecnica'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSchedaTecnicaSchedaTecnica
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'scheda_tecnicas';
+  info: {
+    displayName: 'Scheda_Tecnica';
+    pluralName: 'scheda-tecnicas';
+    singularName: 'scheda-tecnica';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Classe_di_sicurezza: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Frequenza_lavoro: Schema.Attribute.String;
+    Frequenza_nominale: Schema.Attribute.String;
+    Fusibili: Schema.Attribute.String;
+    Grado_di_protezione: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::scheda-tecnica.scheda-tecnica'
+    > &
+      Schema.Attribute.Private;
+    Modalita_funzionamento: Schema.Attribute.String;
+    Monitor: Schema.Attribute.String;
+    Nome: Schema.Attribute.String;
+    Omologazione: Schema.Attribute.String;
+    Potenza_max_assorbita: Schema.Attribute.String;
+    Potenza_uscita_max: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Raffreddamento: Schema.Attribute.String;
+    Temperatura_di_funzionamento: Schema.Attribute.String;
+    Tensione_alimentazione: Schema.Attribute.String;
+    Tensioni_interne: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTerapiaTerapia extends Struct.CollectionTypeSchema {
+  collectionName: 'terapias';
+  info: {
+    displayName: 'Terapia';
+    pluralName: 'terapias';
+    singularName: 'terapia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descrizione: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terapia.terapia'
+    > &
+      Schema.Attribute.Private;
+    Nome: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1136,6 +1236,8 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::prodotto.prodotto': ApiProdottoProdotto;
+      'api::scheda-tecnica.scheda-tecnica': ApiSchedaTecnicaSchedaTecnica;
+      'api::terapia.terapia': ApiTerapiaTerapia;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
