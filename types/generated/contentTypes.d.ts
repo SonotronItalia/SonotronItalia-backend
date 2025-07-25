@@ -642,6 +642,12 @@ export interface ApiProdottoProdotto extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::scheda-tecnica.scheda-tecnica'
     >;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -90,6 +90,14 @@
             "type": "relation",
             "relation": "oneToOne",
             "target": "api::scheda-tecnica.scheda-tecnica"
+        },
+        "slug": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         }
     }
 }
