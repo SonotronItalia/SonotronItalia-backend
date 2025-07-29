@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_shared_features",
+    "info": {
+        "displayName": "feature",
+        "icon": "grid"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "blocks"
+        }
+    },
+    "config": {}
+}
