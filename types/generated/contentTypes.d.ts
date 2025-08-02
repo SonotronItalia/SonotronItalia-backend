@@ -562,6 +562,38 @@ export interface ApiHomepageHomepage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNavigazioneNavigazione extends Struct.CollectionTypeSchema {
+  collectionName: 'navigaziones';
+  info: {
+    displayName: 'navigazione';
+    pluralName: 'navigaziones';
+    singularName: 'navigazione';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    href: Schema.Attribute.String;
+    lable: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navigazione.navigazione'
+    > &
+      Schema.Attribute.Private;
+    ordine: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visibile: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ApiProdottoProdotto extends Struct.CollectionTypeSchema {
   collectionName: 'prodottos';
   info: {
@@ -1276,6 +1308,7 @@ declare module '@strapi/strapi' {
       'api::contatto.contatto': ApiContattoContatto;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::navigazione.navigazione': ApiNavigazioneNavigazione;
       'api::prodotto.prodotto': ApiProdottoProdotto;
       'api::scheda-tecnica.scheda-tecnica': ApiSchedaTecnicaSchedaTecnica;
       'api::terapia.terapia': ApiTerapiaTerapia;
